@@ -111,54 +111,51 @@ def local_search_2_opt(Xdata, city_tour):
     return city_list
 
 # Function: 3_opt
-def local_search_3_opt(Xdata, city_tour, recursive_seeding = 1):
-    count = 0
+def local_search_3_opt(Xdata, city_tour):
     city_list = copy.deepcopy(city_tour)
-    while (count < recursive_seeding):
-        best_route = copy.deepcopy(city_list)
-        best_route_01 = [[],float("inf")]
-        best_route_02 = [[],float("inf")]
-        best_route_03 = [[],float("inf")]
-        best_route_04 = [[],float("inf")]       
-        seed = copy.deepcopy(city_list)        
-        for i in range(0, len(city_list[0]) - 3):
-            for j in range(i+1, len(city_list[0]) - 2):
-                for k in range(j+1, len(city_list[0]) - 1): 
-                    best_route_01[0] = best_route[0][:i+1] + best_route[0][j+1:k+1] + best_route[0][i+1:j+1] + best_route[0][k+1:]
-                    best_route_01[1] = distance_calc(Xdata, best_route_01)
-                    best_route_02[0] = best_route[0][:i+1] + list(reversed(best_route[0][i+1:j+1])) + list(reversed(best_route[0][j+1:k+1])) + best_route[0][k+1:]
-                    best_route_02[1] = distance_calc(Xdata, best_route_02)
-                    best_route_03[0] = best_route[0][:i+1] + list(reversed(best_route[0][j+1:k+1])) + best_route[0][i+1:j+1] + best_route[0][k+1:]
-                    best_route_03[1] = distance_calc(Xdata, best_route_03)
-                    best_route_04[0] = best_route[0][:i+1] + best_route[0][j+1:k+1] + list(reversed(best_route[0][i+1:j+1])) + best_route[0][k+1:]
-                    best_route_04[1] = distance_calc(Xdata, best_route_04)
-                           
-                    if(best_route_01[1]  < best_route[1]):
-                        best_route[1] = copy.deepcopy(best_route_01[1])
-                        for n in range(0, len(best_route[0])): 
-                            best_route[0][n] = best_route_01[0][n] 
-                            
-                    elif(best_route_02[1]  < best_route[1]):
-                        best_route[1] = copy.deepcopy(best_route_02[1])
-                        for n in range(0, len(best_route[0])): 
-                            best_route[0][n] = best_route_02[0][n] 
-                            
-                    elif(best_route_03[1]  < best_route[1]):
-                        best_route[1] = copy.deepcopy(best_route_03[1])
-                        for n in range(0, len(best_route[0])): 
-                            best_route[0][n] = best_route_03[0][n]
-                            
-                    elif(best_route_04[1]  < best_route[1]):
-                        best_route[1] = copy.deepcopy(best_route_04[1])
-                        for n in range(0, len(best_route[0])): 
-                            best_route[0][n] = best_route_04[0][n] 
-                            
-                if (best_route[1] < city_list[1]):
-                    city_list[1] = copy.deepcopy(best_route[1])
-                    for n in range(0, len(city_list[0])): 
-                        city_list[0][n] = best_route[0][n]              
-                best_route = copy.deepcopy(seed)
-        count = count + 1
+    best_route = copy.deepcopy(city_list)
+    best_route_01 = [[],float("inf")]
+    best_route_02 = [[],float("inf")]
+    best_route_03 = [[],float("inf")]
+    best_route_04 = [[],float("inf")]       
+    seed = copy.deepcopy(city_list)        
+    for i in range(0, len(city_list[0]) - 3):
+        for j in range(i+1, len(city_list[0]) - 2):
+            for k in range(j+1, len(city_list[0]) - 1): 
+                best_route_01[0] = best_route[0][:i+1] + best_route[0][j+1:k+1] + best_route[0][i+1:j+1] + best_route[0][k+1:]
+                best_route_01[1] = distance_calc(Xdata, best_route_01)
+                best_route_02[0] = best_route[0][:i+1] + list(reversed(best_route[0][i+1:j+1])) + list(reversed(best_route[0][j+1:k+1])) + best_route[0][k+1:]
+                best_route_02[1] = distance_calc(Xdata, best_route_02)
+                best_route_03[0] = best_route[0][:i+1] + list(reversed(best_route[0][j+1:k+1])) + best_route[0][i+1:j+1] + best_route[0][k+1:]
+                best_route_03[1] = distance_calc(Xdata, best_route_03)
+                best_route_04[0] = best_route[0][:i+1] + best_route[0][j+1:k+1] + list(reversed(best_route[0][i+1:j+1])) + best_route[0][k+1:]
+                best_route_04[1] = distance_calc(Xdata, best_route_04)
+                       
+                if(best_route_01[1]  < best_route[1]):
+                    best_route[1] = copy.deepcopy(best_route_01[1])
+                    for n in range(0, len(best_route[0])): 
+                        best_route[0][n] = best_route_01[0][n] 
+                        
+                elif(best_route_02[1]  < best_route[1]):
+                    best_route[1] = copy.deepcopy(best_route_02[1])
+                    for n in range(0, len(best_route[0])): 
+                        best_route[0][n] = best_route_02[0][n] 
+                        
+                elif(best_route_03[1]  < best_route[1]):
+                    best_route[1] = copy.deepcopy(best_route_03[1])
+                    for n in range(0, len(best_route[0])): 
+                        best_route[0][n] = best_route_03[0][n]
+                        
+                elif(best_route_04[1]  < best_route[1]):
+                    best_route[1] = copy.deepcopy(best_route_04[1])
+                    for n in range(0, len(best_route[0])): 
+                        best_route[0][n] = best_route_04[0][n] 
+                        
+            if (best_route[1] < city_list[1]):
+                city_list[1] = copy.deepcopy(best_route[1])
+                for n in range(0, len(city_list[0])): 
+                    city_list[0][n] = best_route[0][n]              
+            best_route = copy.deepcopy(seed)
     return city_list
 
 # Function: 4_opt
