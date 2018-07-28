@@ -402,5 +402,5 @@ plot_tour_distance_matrix(X, ls4opt) # Red Point = Initial city; Orange Point = 
 Y = pd.read_csv('Python-MH-Local Search-4-opt-Dataset-02.txt', sep = '\t') # Berlin 52 = 7544.37
 X = buid_distance_matrix(Y)
 seed = seed_function(X)
-ls4opt = local_search_4_opt(X, city_tour = seed, recursive_seeding = 5)
+ls4opt = local_search_4_opt(X, city_tour = seed, recursive_seeding = 1)
 plot_tour_coordinates (Y, ls4opt) # Red Point = Initial city; Orange Point = Second City
