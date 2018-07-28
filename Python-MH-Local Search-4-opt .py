@@ -108,6 +108,7 @@ def local_search_2_opt(Xdata, city_tour):
                 for n in range(0, len(city_list[0])): 
                     city_list[0][n] = best_route[0][n]          
             best_route = copy.deepcopy(seed) 
+    print("Best 2-opt solution found =", city_list)
     return city_list
 
 # Function: 3_opt
@@ -156,6 +157,7 @@ def local_search_3_opt(Xdata, city_tour):
                 for n in range(0, len(city_list[0])): 
                     city_list[0][n] = best_route[0][n]              
             best_route = copy.deepcopy(seed)
+    print("Best 2-opt solution found =", city_list)
     return city_list
 
 # Function: 4_opt
