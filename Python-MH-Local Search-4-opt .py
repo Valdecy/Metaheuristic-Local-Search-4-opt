@@ -195,8 +195,7 @@ def local_search_4_opt(Xdata, city_tour, recursive_seeding = 1):
         for i in range(0, len(city_list[0]) - 4):
             for j in range(i+1, len(city_list[0]) - 3):
                 for k in range(j+1, len(city_list[0]) - 2): 
-                    for L in range(k+1, len(city_list[0]) - 1): 
-                        
+                    for L in range(k+1, len(city_list[0]) - 1):                         
                         best_route_03[0] = best_route[0][:i+1] + best_route[0][k+1:L+1] + best_route[0][j+1:k+1] + best_route[0][i+1:j+1] + best_route[0][L+1:]
                         best_route_03[1] = distance_calc(Xdata, best_route_03)                        
                         best_route_04[0] = best_route[0][:i+1] + list(reversed(best_route[0][i+1:j+1])) + best_route[0][j+1:k+1] + list(reversed(best_route[0][k+1:L+1])) + best_route[0][L+1:]                  
