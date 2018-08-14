@@ -104,9 +104,7 @@ def local_search_2_opt(Xdata, city_tour):
             best_route[0][-1]  = best_route[0][0]                          
             best_route[1] = distance_calc(Xdata, best_route)    
             if (best_route[1] < city_list[1]):
-                city_list[1] = copy.deepcopy(best_route[1])
-                for n in range(0, len(city_list[0])): 
-                    city_list[0][n] = best_route[0][n]          
+                city_list = copy.deepcopy(best_route)         
             best_route = copy.deepcopy(seed) 
     print("Best 2-opt solution found =", city_list)
     return city_list
@@ -133,29 +131,16 @@ def local_search_3_opt(Xdata, city_tour):
                 best_route_04[1] = distance_calc(Xdata, best_route_04)
                        
                 if(best_route_01[1]  < best_route[1]):
-                    best_route[1] = copy.deepcopy(best_route_01[1])
-                    for n in range(0, len(best_route[0])): 
-                        best_route[0][n] = best_route_01[0][n] 
-                        
+                    best_route = copy.deepcopy(best_route_01)                        
                 elif(best_route_02[1]  < best_route[1]):
-                    best_route[1] = copy.deepcopy(best_route_02[1])
-                    for n in range(0, len(best_route[0])): 
-                        best_route[0][n] = best_route_02[0][n] 
-                        
+                    best_route = copy.deepcopy(best_route_02)                        
                 elif(best_route_03[1]  < best_route[1]):
-                    best_route[1] = copy.deepcopy(best_route_03[1])
-                    for n in range(0, len(best_route[0])): 
-                        best_route[0][n] = best_route_03[0][n]
-                        
+                    best_route = copy.deepcopy(best_route_03)                       
                 elif(best_route_04[1]  < best_route[1]):
-                    best_route[1] = copy.deepcopy(best_route_04[1])
-                    for n in range(0, len(best_route[0])): 
-                        best_route[0][n] = best_route_04[0][n] 
+                    best_route = copy.deepcopy(best_route_04) 
                         
             if (best_route[1] < city_list[1]):
-                city_list[1] = copy.deepcopy(best_route[1])
-                for n in range(0, len(city_list[0])): 
-                    city_list[0][n] = best_route[0][n]              
+                city_list = copy.deepcopy(best_route)             
             best_route = copy.deepcopy(seed)
     print("Best 2-opt solution found =", city_list)
     return city_list
@@ -250,144 +235,62 @@ def local_search_4_opt(Xdata, city_tour, recursive_seeding = 1):
                         best_route_27[1] = distance_calc(Xdata, best_route_27)
                         
                         if(best_route_01[1]  < best_route[1]):
-                            best_route[1] = copy.deepcopy(best_route_01[1])
-                            for n in range(0, len(best_route[0])): 
-                                best_route[0][n] = best_route_01[0][n]
-                                
+                            best_route = copy.deepcopy(best_route_01)                              
                         elif(best_route_02[1]  < best_route[1]):
-                            best_route[1] = copy.deepcopy(best_route_02[1])
-                            for n in range(0, len(best_route[0])): 
-                                best_route[0][n] = best_route_02[0][n] 
-                                
+                            best_route = copy.deepcopy(best_route_02)
                         elif(best_route_03[1]  < best_route[1]):
-                            best_route[1] = copy.deepcopy(best_route_03[1])
-                            for n in range(0, len(best_route[0])): 
-                                best_route[0][n] = best_route_03[0][n] 
-                                
+                            best_route = copy.deepcopy(best_route_03)       
                         elif(best_route_04[1]  < best_route[1]):
-                            best_route[1] = copy.deepcopy(best_route_04[1])
-                            for n in range(0, len(best_route[0])): 
-                                best_route[0][n] = best_route_04[0][n]
-                                
+                            best_route = copy.deepcopy(best_route_04)                    
                         elif(best_route_05[1]  < best_route[1]):
-                            best_route[1] = copy.deepcopy(best_route_05[1])
-                            for n in range(0, len(best_route[0])): 
-                                best_route[0][n] = best_route_05[0][n] 
-
+                            best_route = copy.deepcopy(best_route_05)
                         elif(best_route_06[1]  < best_route[1]):
-                            best_route[1] = copy.deepcopy(best_route_06[1])
-                            for n in range(0, len(best_route[0])): 
-                                best_route[0][n] = best_route_06[0][n] 
-                                
+                            best_route = copy.deepcopy(best_route_06)      
                         elif(best_route_07[1]  < best_route[1]):
-                            best_route[1] = copy.deepcopy(best_route_07[1])
-                            for n in range(0, len(best_route[0])): 
-                                best_route[0][n] = best_route_07[0][n] 
-                                
+                            best_route = copy.deepcopy(best_route_07)                           
                         elif(best_route_08[1]  < best_route[1]):
-                            best_route[1] = copy.deepcopy(best_route_08[1])
-                            for n in range(0, len(best_route[0])): 
-                                best_route[0][n] = best_route_08[0][n]
-                                
+                            best_route = copy.deepcopy(best_route_08)                              
                         elif(best_route_09[1]  < best_route[1]):
-                            best_route[1] = copy.deepcopy(best_route_09[1])
-                            for n in range(0, len(best_route[0])): 
-                                best_route[0][n] = best_route_09[0][n] 
-                                
+                            best_route = copy.deepcopy(best_route_09)                                
                         elif(best_route_10[1]  < best_route[1]):
-                            best_route[1] = copy.deepcopy(best_route_10[1])
-                            for n in range(0, len(best_route[0])): 
-                                best_route[0][n] = best_route_10[0][n] 
-                                
+                            best_route = copy.deepcopy(best_route_10)                                
                         elif(best_route_11[1]  < best_route[1]):
-                            best_route[1] = copy.deepcopy(best_route_11[1])
-                            for n in range(0, len(best_route[0])): 
-                                best_route[0][n] = best_route_11[0][n] 
-                                
+                            best_route = copy.deepcopy(best_route_11)                                
                         elif(best_route_12[1]  < best_route[1]):
-                            best_route[1] = copy.deepcopy(best_route_12[1])
-                            for n in range(0, len(best_route[0])): 
-                                best_route[0][n] = best_route_12[0][n]
-                                
+                            best_route = copy.deepcopy(best_route_12)                               
                         elif(best_route_13[1]  < best_route[1]):
-                            best_route[1] = copy.deepcopy(best_route_13[1])
-                            for n in range(0, len(best_route[0])): 
-                                best_route[0][n] = best_route_13[0][n] 
-
+                            best_route = copy.deepcopy(best_route_13)
                         elif(best_route_14[1]  < best_route[1]):
-                            best_route[1] = copy.deepcopy(best_route_14[1])
-                            for n in range(0, len(best_route[0])): 
-                                best_route[0][n] = best_route_14[0][n] 
-                                
+                            best_route = copy.deepcopy(best_route_14)                             
                         elif(best_route_15[1]  < best_route[1]):
-                            best_route[1] = copy.deepcopy(best_route_15[1])
-                            for n in range(0, len(best_route[0])): 
-                                best_route[0][n] = best_route_15[0][n] 
-                                
+                            best_route = copy.deepcopy(best_route_15)                              
                         elif(best_route_16[1]  < best_route[1]):
-                            best_route[1] = copy.deepcopy(best_route_16[1])
-                            for n in range(0, len(best_route[0])): 
-                                best_route[0][n] = best_route_16[0][n]
-                                
+                            best_route = copy.deepcopy(best_route_16)                                
                         elif(best_route_17[1]  < best_route[1]):
-                            best_route[1] = copy.deepcopy(best_route_17[1])
-                            for n in range(0, len(best_route[0])): 
-                                best_route[0][n] = best_route_17[0][n] 
-
+                            best_route = copy.deepcopy(best_route_17)
                         elif(best_route_18[1]  < best_route[1]):
-                            best_route[1] = copy.deepcopy(best_route_18[1])
-                            for n in range(0, len(best_route[0])): 
-                                best_route[0][n] = best_route_18[0][n]
-                                
+                            best_route = copy.deepcopy(best_route_18)                                
                         elif(best_route_19[1]  < best_route[1]):
-                            best_route[1] = copy.deepcopy(best_route_19[1])
-                            for n in range(0, len(best_route[0])): 
-                                best_route[0][n] = best_route_19[0][n] 
-                                
+                            best_route = copy.deepcopy(best_route_19)                                
                         elif(best_route_20[1]  < best_route[1]):
-                            best_route[1] = copy.deepcopy(best_route_20[1])
-                            for n in range(0, len(best_route[0])): 
-                                best_route[0][n] = best_route_20[0][n] 
-                                
+                            best_route = copy.deepcopy(best_route_20)
                         elif(best_route_21[1]  < best_route[1]):
-                            best_route[1] = copy.deepcopy(best_route_21[1])
-                            for n in range(0, len(best_route[0])): 
-                                best_route[0][n] = best_route_21[0][n] 
-                                
+                            best_route = copy.deepcopy(best_route_21)                               
                         elif(best_route_22[1]  < best_route[1]):
-                            best_route[1] = copy.deepcopy(best_route_22[1])
-                            for n in range(0, len(best_route[0])): 
-                                best_route[0][n] = best_route_22[0][n]
-                                
+                            best_route = copy.deepcopy(best_route_22)                                
                         elif(best_route_23[1]  < best_route[1]):
-                            best_route[1] = copy.deepcopy(best_route_23[1])
-                            for n in range(0, len(best_route[0])): 
-                                best_route[0][n] = best_route_23[0][n] 
-
+                            best_route = copy.deepcopy(best_route_23)
                         elif(best_route_24[1]  < best_route[1]):
-                            best_route[1] = copy.deepcopy(best_route_24[1])
-                            for n in range(0, len(best_route[0])): 
-                                best_route[0][n] = best_route_24[0][n] 
-                                
+                            best_route = copy.deepcopy(best_route_24)
                         elif(best_route_25[1]  < best_route[1]):
-                            best_route[1] = copy.deepcopy(best_route_25[1])
-                            for n in range(0, len(best_route[0])): 
-                                best_route[0][n] = best_route_25[0][n] 
-                                
+                            best_route = copy.deepcopy(best_route_25)
                         elif(best_route_26[1]  < best_route[1]):
-                            best_route[1] = copy.deepcopy(best_route_26[1])
-                            for n in range(0, len(best_route[0])): 
-                                best_route[0][n] = best_route_26[0][n]
-                                
+                            best_route = copy.deepcopy(best_route_26)       
                         elif(best_route_27[1]  < best_route[1]):
-                            best_route[1] = copy.deepcopy(best_route_27[1])
-                            for n in range(0, len(best_route[0])): 
-                                best_route[0][n] = best_route_27[0][n] 
-                                
+                            best_route = copy.deepcopy(best_route_27)
+                            
                     if (best_route[1] < city_list[1]):
-                        city_list[1] = copy.deepcopy(best_route[1])
-                        for n in range(0, len(city_list[0])): 
-                            city_list[0][n] = best_route[0][n]              
+                        city_list = copy.deepcopy(best_route)             
                     best_route = copy.deepcopy(seed)
         count = count + 1  
         print("Iteration = ", count, "->", city_list)
