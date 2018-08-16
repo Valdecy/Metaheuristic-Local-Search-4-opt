@@ -142,7 +142,7 @@ def local_search_3_opt(Xdata, city_tour):
             if (best_route[1] < city_list[1]):
                 city_list = copy.deepcopy(best_route)             
             best_route = copy.deepcopy(seed)
-    print("Best 2-opt solution found =", city_list)
+    print("Best 3-opt solution found =", city_list)
     return city_list
 
 # Function: 4_opt
