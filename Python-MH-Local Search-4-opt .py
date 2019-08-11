@@ -153,7 +153,7 @@ def local_search_4_opt(Xdata, city_tour, recursive_seeding = 1):
     city_list_old = city_list[1]*2
     iteration = 0
     while (count < recursive_seeding):
-        best_route   = copy.deepcopy(city_list)
+        best_route    = copy.deepcopy(city_list)
         best_route_01 = local_search_2_opt(Xdata, best_route)
         best_route_02 = local_search_3_opt(Xdata, best_route)
         best_route_03 = [[],float("inf")]
